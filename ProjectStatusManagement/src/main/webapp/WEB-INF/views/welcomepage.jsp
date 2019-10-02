@@ -13,6 +13,9 @@
 
 <script src="static/js/jquery-1.11.1.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<!-- Registartion Validation -->
+
+<script type="text/javascript" src="resources/js/registrationValidation.js"></script>
 
 
 <!--[if lt IE 9]>
@@ -51,7 +54,8 @@
 			<div class="container text-center">
 				<h3>New Registration</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-user">
+				<form class="form-horizontal" method="POST" action="save-user"
+					onsubmit="return validation()">
 					<input type="hidden" name="id" value="${user.id }" />
 
 
@@ -59,37 +63,57 @@
 						<label class="control-label col-md-3">Username</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="username"
-								value="${user.username }" />
+								id="username" value="${user.username }" /> 
+								<span id="spanUsername" class="text-danger font-weight-bold"></span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">First Name</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="firstname"
-								value="${user.firstname }" />
+								id="firstname" value="${user.firstname }" />
+								<span
+								id="spanFirstname" class="text-danger"></span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Last Name</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="lastname"
-								value="${user.lastname }" />
+								id="lastname" value="${user.lastname }" />
+								<span
+								id="spanLastname" class="text-danger"></span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Age </label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" name="age"
+							<input type="text" class="form-control" name="age" id="age"
 								value="${user.age }" />
+								<span
+								id="spanAge" class="text-danger"></span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Password</label>
 						<div class="col-md-7">
 							<input type="password" class="form-control" name="password"
-								value="${user.password }" />
+								id="password" value="${user.password }" />
+								
+								<span
+								id="spanPassword" class="text-danger"></span>
 						</div>
 					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Confirm Password</label>
+						<div class="col-md-7">
+							<input type="password" class="form-control" id="conPassword"
+								name="confirmPassword" id="conpassword" />
+								<span
+								id="spanConPassword" class="text-danger"></span>
+						</div>
+					</div>
+
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary" value="Register" />
 					</div>
