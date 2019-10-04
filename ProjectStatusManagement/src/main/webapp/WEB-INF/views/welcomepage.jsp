@@ -15,7 +15,8 @@
 <script src="static/js/bootstrap.min.js"></script>
 <!-- Registartion Validation -->
 
-<script type="text/javascript" src="resources/js/registrationValidation.js"></script>
+<script type="text/javascript"
+	src="resources/js/registrationValidation.js"></script>
 
 
 <!--[if lt IE 9]>
@@ -27,7 +28,7 @@
 
 <body>
 
-	<div role="navigation">
+	<!-- <div role="navigation">
 		<div class="navbar navbar-inverse">
 			<a href="/welcome" class="navbar-brand">FJA Project Status</a>
 			<div class="collapse navbar-collapse">
@@ -38,8 +39,33 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
+	<div class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+		<a class="navbar-brand" href="/welcome">FJA Project Status</a>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="/login">Login
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="/register">New
+						Registration</a></li>
+				<li class="nav-item"><a class="nav-link" href="/status">Status
+						</a></li>
+				<li class="nav-item"><a class="nav-link" href="/show-users">All
+						Users</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#"
+					id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> Dropdown link </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a> <a
+							class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
+		</div>
+	</div>
 
 	<c:choose>
 		<c:when test="${mode=='MODE_HOME'}">
@@ -51,11 +77,13 @@
 		</c:when>
 
 		<c:when test="${mode=='MODE_REGISTER'}">
-			<div class="container text-center">
+			<div class="row">
+				<div class="col-md-2 col-sm-2"></div>
+				<div class="col-md-8 col-sm-8">
 				<h3>New Registration</h3>
 				<hr>
 				<form class="form-horizontal" method="POST" action="save-user"
-					onsubmit="return validation()">
+					onsubmit="return validation()" autocomplete="off">
 					<input type="hidden" name="id" value="${user.id }" />
 
 
@@ -63,16 +91,15 @@
 						<label class="control-label col-md-3">Username</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="username"
-								id="username" value="${user.username }" /> 
-								<span id="spanUsername" class="text-danger font-weight-bold"></span>
+								id="username" value="${user.username }" /> <span
+								id="spanUsername" class="text-danger font-weight-bold"></span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">First Name</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="firstname"
-								id="firstname" value="${user.firstname }" />
-								<span
+								id="firstname" value="${user.firstname }" /> <span
 								id="spanFirstname" class="text-danger"></span>
 						</div>
 					</div>
@@ -80,8 +107,7 @@
 						<label class="control-label col-md-3">Last Name</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="lastname"
-								id="lastname" value="${user.lastname }" />
-								<span
+								id="lastname" value="${user.lastname }" /> <span
 								id="spanLastname" class="text-danger"></span>
 						</div>
 					</div>
@@ -89,18 +115,14 @@
 						<label class="control-label col-md-3">Age </label>
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="age" id="age"
-								value="${user.age }" />
-								<span
-								id="spanAge" class="text-danger"></span>
+								value="${user.age }" /> <span id="spanAge" class="text-danger"></span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Password</label>
 						<div class="col-md-7">
 							<input type="password" class="form-control" name="password"
-								id="password" value="${user.password }" />
-								
-								<span
+								id="password" value="${user.password }" /> <span
 								id="spanPassword" class="text-danger"></span>
 						</div>
 					</div>
@@ -108,8 +130,7 @@
 						<label class="control-label col-md-3">Confirm Password</label>
 						<div class="col-md-7">
 							<input type="password" class="form-control" id="conPassword"
-								name="confirmPassword" id="conpassword" />
-								<span
+								name="confirmPassword" id="conpassword" /> <span
 								id="spanConPassword" class="text-danger"></span>
 						</div>
 					</div>
@@ -117,6 +138,11 @@
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary" value="Register" />
 					</div>
+				</form>
+				
+				</div>
+				<div class="col-md-2 col-sm-2"></div>
+							</div>
 		</c:when>
 
 		<c:when test="${mode=='MODE_UPDATE'}">
@@ -165,6 +191,8 @@
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary" value="Update" />
 					</div>
+				</form>
+			</div>
 		</c:when>
 
 
@@ -193,10 +221,9 @@
 									<td>${user.firstname}</td>
 									<td>${user.lastname}</td>
 									<td>${user.age}</td>
-									<td><a href="/delete-user?id=${user.id}"><span
-											class="glyphicon glyphicon-trash"></span></a></td>
+									<td><a href="/delete-user?id=${user.id}"><span class="glyphicon glyphicon-scissors">delete</span></a></td>
 									<td><a href="/edit-user?id=${user.id }"><span
-											class="glyphicon glyphicon-pencil"></span></a></td>
+											class="glyphicon glyphicon-pencil">edit</span></a></td>
 								</tr>
 							</c:forEach>
 
