@@ -138,6 +138,20 @@ function validation() {
 		count++;
 	}
 	
+	if((password.length > 0) && (password.length < 8)){
+		$('#password').css('border-color', 'red');
+		$('#spanPassword').show();
+		document.getElementById('spanPassword').innerHTML = "* Password is weak	*";
+		count++;
+	}
+	
+	
+	if(password != conPassword){
+		$('#conpassword').css('border-color', 'red');
+		$('#spanConPassword').show();
+		document.getElementById('spanConPassword').innerHTML = "* Password is mismatching *";
+		count++;
+	}
 	/*if(age != regAge){
 		$('#age').css('border-color', 'red');
 		$('#spanAge').show();

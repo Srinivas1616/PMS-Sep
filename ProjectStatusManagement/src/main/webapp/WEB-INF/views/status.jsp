@@ -13,6 +13,13 @@
 
 <script src="static/js/jquery-1.11.1.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<style>
+body {
+	overflow-x: hidden;
+}
+</style>
+
+<script type="text/javascript" src="resources/js/statusValidation.js"></script>
 
 
 <!--[if lt IE 9]>
@@ -44,15 +51,14 @@
 		</div>
 	</div>
 
-	<form class="form-horizontal" method="POST" action="save-user"
-		onsubmit="return validation()" autocomplete="off">
+	<form class="form-horizontal" method="POST" action="welcome"
+		onsubmit="return statusValidation()" autocomplete="off">
 
 		<div class="form-group">
-			<div class="row mb-md-5 mb-lg-5">
-				<div class="cold-md-2 col-lg-2"></div>
+			<div class="row mb-md-4 mb-lg-4">
+				<div class="col-md-2 col-lg-2"></div>
 				<div class="col-md-4 col-lg-4">
-					<label class="control-label">Project Name</label>
-					 <select
+					<label class="control-label">Project Name</label> <select
 						class="form-control">
 						<option value="BlueKC">BlueKC</option>
 						<option value="IBC">IBC</option>
@@ -67,14 +73,76 @@
 
 				<div class="col-md-4">
 					<label class="control-label">Release Version</label> <input
-						type="text" class="form-control" placeholder="Enter the latest Release version" />
+						type="text" class="form-control"
+						placeholder="enter the latest Release version" />
 				</div>
 			</div>
-			<hr class="col-md-8">
-			
-		<div class="form-group ">
-			<input type="submit" class="btn btn-primary" value="Register" />
+			<hr class="mb-md-5 mb-lg-5 col-md-8">
+
+
+			<div class="row mb-md-4 mb-lg-4">
+				<div class="col-md-2 col-lg-2"></div>
+				<div class="col-md-4 col-lg-4">
+					<label class="control-label">Closed:</label> <input type="text"
+						id="closed" class="form-control"
+						placeholder="enter the closed tickets number"> <span
+						id="spanClosed" class="text-danger font-weight-bold"></span>
+				</div>
+				<div class="col-md-4 col-lg-4">
+					<label class="control-label">Failed:</label> <input type="text"
+						id="failed" class="form-control"
+						placeholder="enter the failed tickets number"> <span
+						id="spanFailed" class="text-danger font-weight-bold"></span>
+				</div>
+
+			</div>
+
+			<div class="row mb-md-4 mb-lg-4">
+				<div class="col-md-2 col-lg-2"></div>
+				<div class="col-md-4 col-lg-4">
+					<label class="control-label">Reopened:</label> <input type="text"
+						id="reopened" class="form-control"
+						placeholder="enter the reopened tickets number"> <span
+						id="spanReopened" class="text-danger font-weight-bold"></span>
+				</div>
+				<div class="col-md-4 col-lg-4">
+					<label class="control-label">Blocked:</label> <input type="text"
+						id="blocked" class="form-control"
+						placeholder="enter the blocked tickets number"> <span
+						id="spanBlocked" class="text-danger font-weight-bold"></span>
+				</div>
+
+			</div>
+			<div class="row mb-md-4 mb-lg-4">
+				<div class="col-md-2 col-lg-2"></div>
+				<div class="col-md-4 col-lg-4">
+					<label class="control-label">Inprogress:</label>
+					 <input type="text"
+						id="inprogress" class="form-control"
+						placeholder="enter the inprogress tickets number" onblur='numberValidation(inprogress)'/> 
+						<span id="spanInprogress" class="text-danger font-weight-bold"></span>
+				</div>
+				<div class="col-md-4 col-lg-4">
+					<label class="control-label">Review:</label> <input type="text"
+						id="review" class="form-control"
+						placeholder="enter the review tickets number"> <span
+						id="spanReview" class="text-danger font-weight-bold"></span>
+				</div>
+
+			</div>
+			<div class="row mb-md-5 mb-lg-5">
+				<div class="col-md-2 col-lg-2"></div>
+				<div class="col-md-8 col-lg-8">
+					<label class="control-label">Additional Comments:</label>
+					<textarea class="form-control" name="message" rows="2" col="10"
+						placeholder="enter the required additional comments"> </textarea>
+				</div>
+			</div>
+
+
+			<div class="text-center">
+				<input id="submit" type="submit" class="btn btn-success" disabled="true" value="Submit" />
+			</div>
 		</div>
 	</form>
-
 </body>

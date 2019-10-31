@@ -18,6 +18,11 @@
 <script type="text/javascript"
 	src="resources/js/registrationValidation.js"></script>
 
+<style>
+body {
+	overflow-x: hidden;
+}
+</style>
 
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -51,7 +56,7 @@
 				<li class="nav-item"><a class="nav-link" href="/register">New
 						Registration</a></li>
 				<li class="nav-item"><a class="nav-link" href="/status">Status
-						</a></li>
+				</a></li>
 				<li class="nav-item"><a class="nav-link" href="/show-users">All
 						Users</a></li>
 				<li class="nav-item dropdown"><a
@@ -80,69 +85,69 @@
 			<div class="row">
 				<div class="col-md-2 col-sm-2"></div>
 				<div class="col-md-8 col-sm-8">
-				<h3>New Registration</h3>
-				<hr>
-				<form class="form-horizontal" method="POST" action="save-user"
-					onsubmit="return validation()" autocomplete="off">
-					<input type="hidden" name="id" value="${user.id }" />
+					<h3>New Registration</h3>
+					<hr>
+					<form class="form-horizontal" method="POST" action="save-user"
+						onsubmit="return validation()" autocomplete="off">
+						<input type="hidden" name="id" value="${user.id }" />
 
 
-					<div class="form-group">
-						<label class="control-label col-md-3">Username</label>
-						<div class="col-md-7">
-							<input type="text" class="form-control" name="username"
-								id="username" value="${user.username }" /> <span
-								id="spanUsername" class="text-danger font-weight-bold"></span>
+						<div class="form-group">
+							<label class="control-label col-md-3">Username</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" name="username"
+									id="username" value="${user.username }" /> <span
+									id="spanUsername" class="text-danger font-weight-bold"></span>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">First Name</label>
-						<div class="col-md-7">
-							<input type="text" class="form-control" name="firstname"
-								id="firstname" value="${user.firstname }" /> <span
-								id="spanFirstname" class="text-danger"></span>
+						<div class="form-group">
+							<label class="control-label col-md-3">First Name</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" name="firstname"
+									id="firstname" value="${user.firstname }" /> <span
+									id="spanFirstname" class="text-danger"></span>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Last Name</label>
-						<div class="col-md-7">
-							<input type="text" class="form-control" name="lastname"
-								id="lastname" value="${user.lastname }" /> <span
-								id="spanLastname" class="text-danger"></span>
+						<div class="form-group">
+							<label class="control-label col-md-3">Last Name</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" name="lastname"
+									id="lastname" value="${user.lastname }" /> <span
+									id="spanLastname" class="text-danger"></span>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Age </label>
-						<div class="col-md-3">
-							<input type="text" class="form-control" name="age" id="age"
-								value="${user.age }" /> <span id="spanAge" class="text-danger"></span>
+						<div class="form-group">
+							<label class="control-label col-md-3">Age </label>
+							<div class="col-md-3">
+								<input type="text" class="form-control" name="age" id="age"
+									value="${user.age }" /> <span id="spanAge" class="text-danger"></span>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Password</label>
-						<div class="col-md-7">
-							<input type="password" class="form-control" name="password"
-								id="password" value="${user.password }" /> <span
-								id="spanPassword" class="text-danger"></span>
+						<div class="form-group">
+							<label class="control-label col-md-3">Password</label>
+							<div class="col-md-7">
+								<input type="password" class="form-control" name="password"
+									id="password" value="${user.password }" /> <span
+									id="spanPassword" class="text-danger"></span>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3">Confirm Password</label>
-						<div class="col-md-7">
-							<input type="password" class="form-control" id="conPassword"
-								name="confirmPassword" id="conpassword" /> <span
-								id="spanConPassword" class="text-danger"></span>
+						<div class="form-group">
+							<label class="control-label col-md-3">Confirm Password</label>
+							<div class="col-md-7">
+								<input type="password" class="form-control" id="conPassword"
+									name="confirmPassword" id="conpassword" /> <span
+									id="spanConPassword" class="text-danger"></span>
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group ">
-						<input type="submit" class="btn btn-primary" value="Register" />
-					</div>
-				</form>
-				
+						<div class="form-group ">
+							<input type="submit" class="btn btn-success btn-rounded" value="Register" />
+						</div>
+					</form>
+
 				</div>
 				<div class="col-md-2 col-sm-2"></div>
-							</div>
+			</div>
 		</c:when>
 
 		<c:when test="${mode=='MODE_UPDATE'}">
@@ -189,7 +194,7 @@
 						</div>
 					</div> --%>
 					<div class="form-group ">
-						<input type="submit" class="btn btn-primary" value="Update" />
+						<input type="submit" class="btn btn-success" value="Update" />
 					</div>
 				</form>
 			</div>
@@ -221,7 +226,8 @@
 									<td>${user.firstname}</td>
 									<td>${user.lastname}</td>
 									<td>${user.age}</td>
-									<td><a href="/delete-user?id=${user.id}"><span class="glyphicon glyphicon-scissors">delete</span></a></td>
+									<td><a href="/delete-user?id=${user.id}"><span
+											class="glyphicon glyphicon-scissors">delete</span></a></td>
 									<td><a href="/edit-user?id=${user.id }"><span
 											class="glyphicon glyphicon-pencil">edit</span></a></td>
 								</tr>
@@ -262,7 +268,7 @@
 					</div>
 
 					<div class="form-group ">
-						<input type="submit" class="btn btn-primary" value="Login" />
+						<input type="submit" class="btn btn-success btn-md" value="Login" />
 					</div>
 				</form>
 			</div>
